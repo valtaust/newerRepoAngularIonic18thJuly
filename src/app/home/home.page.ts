@@ -35,14 +35,13 @@ export class HomePage implements OnInit {
   weatherParams = '&units=metric&APPID=eb03b1f5e5afb5f4a4edb40c1ef2f534';
 
   constructor(private http: HttpClient) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     const { city } = changes;
     this.fetchData(city.currentValue);
   }
+
+  ngOnInit() {}
 
   fetchData(text = '') {
     const url = `${this.weatherAPI}${text}${this.weatherParams}`;

@@ -13,6 +13,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular:browser": "*",
+    "@angular-devkit/build-angular:dev-server": "*",
     "@angular/animations": "14.0.6",
     "@angular/common": "14.0.6",
     "@angular/compiler": "14.0.6",
