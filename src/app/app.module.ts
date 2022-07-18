@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(),
     HttpClientModule,
-    RouterModule.forChild([
+    RouterModule.forRoot([
       //{ path: 'TestModule', component: TestModule },
       { path: 'HomePage', component: HomePage },
       //{ path: 'SettingsPage', component: SettingsPage },
