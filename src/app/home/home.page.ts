@@ -41,7 +41,9 @@ export class HomePage implements OnInit {
     this.fetchData(city.currentValue);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.city;
+  }
 
   fetchData(text = '') {
     const url = `${this.weatherAPI}${text}${this.weatherParams}`;
