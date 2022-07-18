@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   @ViewChild('cityInput') cityInput: any;
   cityName: string = 'Galway';
 
-  ngOnInit(): void {
+  OnInit(): void {
     Observable.apply(
       //replaced fromEvent with reply
       this.cityInput.nativeElement,
