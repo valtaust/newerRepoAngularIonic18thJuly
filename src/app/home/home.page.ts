@@ -4,7 +4,7 @@ import {
   Input,
   SimpleChanges,
   OnChanges,
-ViewChild,
+  ViewChild,
 } from '@angular/core';
 import { NavController } from '@ionic/angular';
 //import { SettingsPage } from '../settings/settings.page';
@@ -83,5 +83,4 @@ export class HomePage implements OnInit {
   go(text): void {
     this.cityName = text; // update map
   }
-}
 }
