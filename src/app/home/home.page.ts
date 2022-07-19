@@ -4,11 +4,13 @@ import {
   Input,
   SimpleChanges,
   OnChanges,
+ViewChild,
 } from '@angular/core';
 import { NavController } from '@ionic/angular';
 //import { SettingsPage } from '../settings/settings.page';
 //import { HttpClient } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 //import 'rxjs/add/operator/map';
 
 @Component({
