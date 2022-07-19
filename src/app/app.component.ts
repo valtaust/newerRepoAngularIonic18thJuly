@@ -11,27 +11,9 @@ import { map, filter, debounceTime, tap, switchAll } from 'rxjs/operators';
 
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   rootPage = HomePage;
 
-  @ViewChild('cityInput') cityInput: any;
-  cityName: string = 'Galway';
-
-  OnInit(): void {
-    Observable.apply(
-      //replaced fromEvent with reply
-      this.cityInput.nativeElement,
-      'keyup'
-    )
-      .map((e: any) => e.target.value)
-      .filter((text: string) => text.length <= 1) //obtain less than 2 args here
-      .debounceTime(1000)
-      .subscribe((text: string) => this.go(text));
-  }
-
-  go(text): void {
-    this.cityName = text; // update map
-  }
 }
 
 /* 

@@ -23,6 +23,16 @@ import { HttpClient } from '@angular/common/http';
 
   <pre>{{data?.coord.lat}} {{data?.coord.lon}}°</pre> 
   <pre>data:\n{{data | json}}</pre> 
+
+  <div>
+    <home [city]="cityName"></home>
+    <input
+      type="text"
+      placeholder="Search a city"
+      [ngModel]="cityName"
+      #cityInput
+    />
+  </div>
   `,
   //data[0] is start parsing json as array: Object[]
 })
@@ -52,4 +62,24 @@ export class HomePage implements OnInit {
       this.data; // .json() not working with HttpClient
     });
   }
+
+  @ViewChild('cityInput') cityInput: any;
+  cityName: string = 'Galway';
+
+  OnInit(): void {
+    Observable.apply(
+      //replaced fromEvent with reply
+      this.cityInput.nativeElement,
+      'keyup'
+    )
+      .map((e: any) => e.target.value)
+      .filter((text: string) => text.length <= 1) //obtain less than 2 args here
+      .debounceTime(1000)
+      .subscribe((text: string) => this.go(text));
+  }
+
+  go(text): void {
+    this.cityName = text; // update map
+  }
+}
 }
