@@ -10,6 +10,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgModel } from '@angular/forms';
+import { HtmlParser } from '@angular/compiler';
 //import 'rxjs/add/operator/map';
 
 @Component({
@@ -25,12 +26,21 @@ import { NgModel } from '@angular/forms';
   <pre>{{data?.coord.lat}} {{data?.coord.lon}}°</pre> 
   <pre>data:\n{{data | json}}</pre> 
 
-  <div > #cityInput [(ngModel)]="cityName" type="text" placeholder="Search a city" </div>
-  `,
+  <div>
+    <home [city]="cityName"></home>
+    <input
+      type="text"
+      placeholder="Search a city"
+      [ngModel]="cityName"
+      #cityInput
+    />
+  </div>,`,
   //data[0] is start parsing json as array: Object[]
+  // <div #cityInput [(ngModel)]="cityName"> type="text" placeholder="Search a city"
+  //</div>
 })
 export class HomePage implements OnInit {
-  @Input() city: string; 
+  @Input() city: string;
   data: any;
 
   weatherIconURL = 'https://openweathermap.org/img/w/';
@@ -45,9 +55,9 @@ export class HomePage implements OnInit {
     this.fetchData(city.currentValue);
   }
 
-  ngOnInit() {
-    this.city;
-  }
+  //ngOnInit() {
+  //this.city;
+  //}
 
   fetchData(text = '') {
     const url = `${this.weatherAPI}${text}${this.weatherParams}`;
@@ -64,7 +74,11 @@ export class HomePage implements OnInit {
   @ViewChild('cityInput', { read: NgModel }) inRef;
   cityName: string = 'Galway';
 
-  OnInit(): void {
+  //ngAfterViewInit(){
+  //this.cityInput.nativeElement.innerHTML =  ;
+  //}
+
+  ngOnInit() {
     Observable.apply(
       //replaced fromEvent with reply
       this.cityInput.nativeElement,
