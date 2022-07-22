@@ -18,6 +18,7 @@ import { HtmlParser } from '@angular/compiler';
   template: `
   <img 
   src="https://maps.googleapis.com/maps/api/staticmap?center={{city}}&zoom=5&size=200x200&key=AIzaSyBAyMH-A99yD5fHQPz7uzqk8glNJYGEqus" />
+  
   <h3>
     <img [src]="weatherIconURL + data?.weather[0].icon +'.png'">
     {{data?.weather[0].description}} / {{data?.main.temp}}°
@@ -45,7 +46,7 @@ export class HomePage implements OnInit {
 
   weatherIconURL = 'https://openweathermap.org/img/w/';
   weatherAPI = 'https://api.openweathermap.org/data/2.5/weather?q=';
-  weatherParams = '&units=metric&APPID=eb03b1f5e5afb5f4a4edb40c1ef2f534';
+  weatherParams = '&units=metric&APPID=c074c245788df1799579865e74f04a2b';
   cityInput: any;
 
   constructor(private http: HttpClient) {}
