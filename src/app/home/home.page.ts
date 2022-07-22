@@ -35,6 +35,7 @@ import { HtmlParser } from '@angular/compiler';
       #cityInput
     />
   </div>,`,
+  //lon lat are not in the json data so left them in {} brackets
   //data[0] is start parsing json as array: Object[]
   // <div #cityInput [(ngModel)]="cityName"> type="text" placeholder="Search a city"
   //</div>
