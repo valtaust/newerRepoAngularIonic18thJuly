@@ -17,8 +17,7 @@ import { HtmlParser } from '@angular/compiler';
   selector: 'app-home',
   template: `
   <img 
-  src="https://maps.googleapis.com/maps/api/staticmap?center={{city}}&zoom=5&size=200x200&key=AIzaSyBAyMH-A99yD5fHQPz7uzqk8glNJYGEqus" />
-  
+  src="https://openweathermap.org/weathermap?basemap={{city}}&zoom=true&layer=temperature&{lat}.0741&{lon}.8330&zoom=7" />
   <h3>
     <img [src]="weatherIconURL + data?.weather[0].icon +'.png'">
     {{data?.weather[0].description}} / {{data?.main.temp}}°
