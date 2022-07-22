@@ -5,6 +5,7 @@ import {
   SimpleChanges,
   OnChanges,
   ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { NavController } from '@ionic/angular';
 //import { SettingsPage } from '../settings/settings.page';
@@ -26,15 +27,7 @@ import { Observable } from 'rxjs';
   <pre>{{data?.coord.lat}} {{data?.coord.lon}}°</pre> 
   <pre>data:\n{{data | json}}</pre> 
 
-  <div>
-    <home [city]="cityName"></home>
-    <input
-      type="text"
-      placeholder="Search a city"
-      [ngModel]="cityName"
-      #cityInput
-    />
-  </div>
+  <div #cityInput [(ngModel)]="cityName" type="text" placeholder="Search a city"> </div>
   `,
   //data[0] is start parsing json as array: Object[]
 })
@@ -66,6 +59,7 @@ export class HomePage implements OnInit {
   }
 
   @ViewChild('cityInput') cityInput: any;
+  @ViewChild('cityInput', { static: false, read: ElementRef }) elRef;
   cityName: string = 'Galway';
 
   OnInit(): void {
