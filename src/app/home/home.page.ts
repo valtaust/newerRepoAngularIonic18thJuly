@@ -3,11 +3,8 @@ import {
   OnInit,
   Input,
   SimpleChanges,
-  OnChanges,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
-import { NavController } from '@ionic/angular';
 //import { SettingsPage } from '../settings/settings.page';
 //import { HttpClient } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -33,7 +30,7 @@ import { NgModel } from '@angular/forms';
   //data[0] is start parsing json as array: Object[]
 })
 export class HomePage implements OnInit {
-  @Input() city: string;
+  @Input() city: string; 
   data: any;
 
   weatherIconURL = 'https://openweathermap.org/img/w/';
