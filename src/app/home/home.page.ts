@@ -12,6 +12,7 @@ import { NavController } from '@ionic/angular';
 //import { HttpClient } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { NgModel } from '@angular/forms';
 //import 'rxjs/add/operator/map';
 
 @Component({
@@ -27,7 +28,7 @@ import { Observable } from 'rxjs';
   <pre>{{data?.coord.lat}} {{data?.coord.lon}}°</pre> 
   <pre>data:\n{{data | json}}</pre> 
 
-  <div #cityInput [(ngModel)]="cityName" type="text" placeholder="Search a city"> </div>
+  <div > #cityInput [(ngModel)]="cityName" type="text" placeholder="Search a city" </div>
   `,
   //data[0] is start parsing json as array: Object[]
 })
@@ -38,6 +39,7 @@ export class HomePage implements OnInit {
   weatherIconURL = 'https://openweathermap.org/img/w/';
   weatherAPI = 'https://api.openweathermap.org/data/2.5/weather?q=';
   weatherParams = '&units=metric&APPID=eb03b1f5e5afb5f4a4edb40c1ef2f534';
+  cityInput: any;
 
   constructor(private http: HttpClient) {}
 
@@ -58,8 +60,11 @@ export class HomePage implements OnInit {
     });
   }
 
-  @ViewChild('cityInput') cityInput: any;
-  @ViewChild('cityInput', { static: false, read: ElementRef }) elRef;
+  // @ViewChild('cityInput') cityInput: any;
+  //@ViewChild('cityInput', { static: false, read: ElementRef }) elRef;
+
+  //ViewChild returns NgModel associated with the nameInput
+  @ViewChild('cityInput', { read: NgModel }) inRef;
   cityName: string = 'Galway';
 
   OnInit(): void {
